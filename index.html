@@ -81,28 +81,54 @@
     >
     </div>
 
-    <!-- ✅ Chèn thêm ảnh hiển thị bên dưới các dòng chữ -->
-    <div id="messages-with-images" class="text-center mt-6 space-y-4">
-      <div class="flex items-center justify-center gap-2">
-        <span>Quý Thiện 𓆩💗𓆪 Khánh Huyền</span>
-        <img src="https://i.postimg.cc/XvQm3HW4/temp-image-7-B84-D7-C3-0376-4-FBC-B5-DC-F7-EFDDF30066.jpg" alt="Ảnh 1" class="w-6 h-6 rounded-full">
-      </div>
-      <div class="flex items-center justify-center gap-2">
-        <span>03.02.2007𓆩🖤𓆪 12.03.2007</span>
-        <img src="https://i.imgur.com/efgh456.jpg" alt="Ảnh 2" class="w-6 h-6 rounded-full">
-      </div>
-      <div class="flex items-center justify-center gap-2">
-        <span>I Love Khánh Huyền</span>
-        <img src="https://i.postimg.cc/9Fkd7sPr/quythien1.jpg" alt="Ảnh 3" class="w-6 h-6 rounded-full">
-      </div>
-      <div class="flex items-center justify-center gap-2">
-        <span>I Love Quý Thiện</span>
-        <img src="https://i.postimg.cc/MThcT8JS/F58-F7-A7-C-B307-4-CCE-BA4-E-B4969-BE3-CCAC.jpg" alt="Ảnh 4" class="w-6 h-6 rounded-full">
-      </div>
-    </div>
-    <!-- ✅ Kết thúc phần ảnh -->
-
     <script type="module" src="/static/js/app.js"></script>
     <script type="module" src="/static/js/home.js"></script>
+
+    <!-- Script chèn ảnh động vào #app -->
+    <script>
+      window.addEventListener('load', () => {
+        const app = document.getElementById('app');
+        if (!app) return;
+
+        const container = document.createElement('div');
+        container.style.textAlign = 'center';
+        container.style.marginTop = '24px';
+        container.style.display = 'flex';
+        container.style.flexDirection = 'column';
+        container.style.gap = '12px';
+
+        const items = [
+          { text: 'Quý Thiện 𓆩💗𓆪 Khánh Huyền', img: 'https://i.imgur.com/qNWDbtk.jpg' },
+          { text: '03.02.2007𓆩🖤𓆪 12.03.2007', img: 'https://i.imgur.com/qNWDbtk.jpg' },
+          { text: 'I Love Khánh Huyền', img: 'https://i.imgur.com/qNWDbtk.jpg' },
+          { text: 'I Love Quý Thiện', img: 'https://i.imgur.com/qNWDbtk.jpg' }
+        ];
+
+        items.forEach(({ text, img }) => {
+          const row = document.createElement('div');
+          row.style.display = 'flex';
+          row.style.justifyContent = 'center';
+          row.style.alignItems = 'center';
+          row.style.gap = '8px';
+
+          const span = document.createElement('span');
+          span.textContent = text;
+
+          const image = document.createElement('img');
+          image.src = img;
+          image.alt = text;
+          image.style.width = '32px';
+          image.style.height = '32px';
+          image.style.borderRadius = '50%';
+
+          row.appendChild(span);
+          row.appendChild(image);
+
+          container.appendChild(row);
+        });
+
+        app.appendChild(container);
+      });
+    </script>
   </body>
 </html>
