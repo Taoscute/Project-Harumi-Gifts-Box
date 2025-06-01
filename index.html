@@ -1,56 +1,87 @@
+<!-- Clone by @WusThanhDieu -->
 <!DOCTYPE html>
 <html lang="en" class="dark">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Github DJ Quy Thien</title>
-  <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Instrument Sans', sans-serif;
-      background-color: #121212;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-    }
-    .message-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .message-row img {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-  </style>
-</head>
-<body>
-  <h1>Github DJ Quy Thien</h1>
-
-  <div id="messages">
-    <div class="message-row">
-      <span>Quý Thiện 𓆩💗𓆪 Khánh Huyền</span>
-      <img src="https://i.imgur.com/qNWDbtk.jpg" alt="Ảnh 1" />
-    </div>
-    <div class="message-row">
-      <span>03.02.2007𓆩🖤𓆪 12.03.2007</span>
-      <img src="https://i.imgur.com/qNWDbtk.jpg" alt="Ảnh 2" />
-    </div>
-    <div class="message-row">
-      <span>I Love Khánh Huyền</span>
-      <img src="https://i.imgur.com/qNWDbtk.jpg" alt="Ảnh 3" />
-    </div>
-    <div class="message-row">
-      <span>I Love Quý Thiện</span>
-      <img src="https://i.imgur.com/qNWDbtk.jpg" alt="Ảnh 4" />
-    </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Github DJ Quy Thien</title>
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/css/app.css" />
+  </head>
+  <body class="font-sans antialiased">
+    <div
+      id="app"
+      data-page='{
+        "component": "views/home",
+        "props": {
+          "errors": {},
+          "name": "Github DJ Quy Thien",
+          "quote": {
+            "message": "",
+            "author": ""
+          },
+          "auth": {
+            "user": null
+          },
+          "ziggy": {
+            "port": null,
+            "defaults": [],
+            "routes": {
+              "home": {
+                "uri": "/",
+                "methods": ["GET", "HEAD"]
+              },
+              "show-create-form": {
+                "uri": "create-message/{id?}",
+                "methods": ["GET", "HEAD"],
+                "parameters": ["id"]
+              },
+              "create-form": {
+                "uri": "create-message",
+                "methods": ["POST"]
+              },
+              "login": {
+                "uri": "login",
+                "methods": ["GET", "HEAD"]
+              },
+              "logout": {
+                "uri": "logout",
+                "methods": ["POST"]
+              },
+              "storage.local": {
+                "uri": "storage/{path}",
+                "methods": ["GET", "HEAD"],
+                "wheres": {
+                  "path": ".*"
+                },
+                "parameters": ["path"]
+              }
+            },
+            "location": ""
+          },
+          "message": "",
+          "client": {
+            "fontName": "Mali",
+            "color": "#ff0019",
+            "messages": [
+              "𓆩Chang💗Chang𓆪",
+              "01.06.2007",
+              "Happy Birthday To Chang Chang 🎂🎂",
+              "Không Có Gì Hết Trơn Á 🧏‍♂🧏‍♂"
+            ],
+            "music": "//files.catbox.moe/znclia.mp3"
+          },
+          "clientId": "/"
+        },
+        "url": "/",
+        "version": "",
+        "clearHistory": false,
+        "encryptHistory": false
+      }
+      '
+    >
   </div>
-
   <script type="module" src="/static/js/app.js"></script>
   <script type="module" src="/static/js/home.js"></script>
-</body>
+  </body>
 </html>
